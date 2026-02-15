@@ -1,0 +1,21 @@
+footer p {
+  color: gray;
+  margin: 10px 0;
+}
+
+footer h2 {
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.about-us-link,
+.login-link,
+.contact-link,
+.active-link {
+  color: rgb(223, 113, 146) !important;
+}

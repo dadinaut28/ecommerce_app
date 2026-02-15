@@ -1,0 +1,7 @@
+export function TrendingProducts() {
+  return (
+    <div>
+      <h2>Trending Products</h2>
+    </div>
+  );
+}
