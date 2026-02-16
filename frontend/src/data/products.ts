@@ -1,5 +1,3 @@
-import type { Product } from "../components/ProductCard";
-
 export interface LatestProduct {
   id: number;
   name: string;
@@ -11,7 +9,7 @@ export interface LatestProduct {
   promoPrice: number;
 }
 
-export const products: Product[] = [
+export const products = [
   {
     id: 1,
     name: "Cantilever chair",

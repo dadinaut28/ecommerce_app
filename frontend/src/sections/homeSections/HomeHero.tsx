@@ -9,8 +9,8 @@ export function HomeHero() {
         <p className="text-pink-500 font-bold text-xl">
           Les meilleurs meubles pour votre maison...
         </p>
-        <h2 className="text-3xl font-bold my-6 sm:my-4">
-          New furniture Collection Trend in 2025
+        <h2 className="text-2xl sm:text-3xl font-bold my-6 sm:my-4">
+          Découvrez la nouvelle collection de meubles tendance 2025
         </h2>
         <p className="text-gray-400 my-3">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus

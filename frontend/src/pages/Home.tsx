@@ -1,8 +1,8 @@
 import { HomeHero } from "../sections/homeSections/HomeHero";
 import { FeaturedProducts } from "../sections/homeSections/FeaturedProducts";
-import { LatestProducts } from "../sections/homeSections/LatestProducts";
 import { Offers } from "../sections/homeSections/Offers";
 import { Button } from "../components/Button";
+import { LatestProducts } from "../sections/homeSections/LatestProducts";
 
 export function Home() {
   return (

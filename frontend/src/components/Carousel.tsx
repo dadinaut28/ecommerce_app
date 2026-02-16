@@ -3,10 +3,11 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import "swiper/swiper.css";
+// import "swiper/modules/navigation.css";
+// import "swiper/css/navigation";
+// import "swiper/css/pagination";
+// import "swiper/css/scrollbar";
 
 export const Carousel = () => {
   return (
@@ -68,7 +69,6 @@ export const Carousel = () => {
           </div>
         </div>
       </SwiperSlide>
-      ...
     </Swiper>
   );
 };

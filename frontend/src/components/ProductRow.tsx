@@ -25,7 +25,9 @@ export function ProductRow({
     product.category,
   );
   const [newProductPrice, setNewProductPrice] = useState(product.price);
-  const [newProductStocked, setNewProductStocked] = useState(product.stocked);
+  const [newProductStocked, setNewProductStocked] = useState(
+    String(product.stocked),
+  );
   // POTENTIAL ERROR HERE
   const [newProductImage, setNewProductImage] = useState<File | null>(null);
   const [
