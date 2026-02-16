@@ -63,7 +63,7 @@ async function postNewProduct(req, res) {
       const newProduct = await createNewProduct({
         name,
         description,
-        price,
+        price: parseInt(price),
         code,
         stocked,
         imageUrl,
@@ -134,8 +134,6 @@ async function patchProduct(req, res) {
   try {
     const { id } = req.params;
     const { file } = req;
-    console.log(req.body);
-    console.log(req.file);
     const {
       newProductName,
       newProductCategory,
@@ -151,7 +149,7 @@ async function patchProduct(req, res) {
           newProductName,
           newProductDescription,
           newProductCode,
-          newProductPrice,
+          parseInt(newProductPrice),
           newProductCategory,
           id,
         ],
@@ -175,7 +173,7 @@ async function patchProduct(req, res) {
     const updatedProduct = await updateProduct(id, {
       newProductName,
       newProductCategory,
-      newProductPrice,
+      newProductPrice: parseInt(newProductPrice),
       newProductCode,
       newProductDescription,
       newImageUrl,

@@ -1,9 +1,14 @@
+import type { Product } from "../../components/ProductCard";
 import { ProductRow } from "../../components/ProductRow";
 
 export function ProductRowContainer({
   products,
   onUpdateProductFormInputMissing,
   reloadProducts,
+}: {
+  products: Product[];
+  onUpdateProductFormInputMissing: () => void;
+  reloadProducts: () => void;
 }) {
   return (
     <div className="">

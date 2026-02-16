@@ -1,5 +1,4 @@
 import { HomeHero } from "../sections/homeSections/HomeHero";
-import { NavBar } from "../components/NavBar";
 import { FeaturedProducts } from "../sections/homeSections/FeaturedProducts";
 import { LatestProducts } from "../sections/homeSections/LatestProducts";
 import { Offers } from "../sections/homeSections/Offers";

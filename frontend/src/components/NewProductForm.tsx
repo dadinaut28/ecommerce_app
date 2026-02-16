@@ -3,21 +3,29 @@ import { Input } from "./Input";
 import { Button } from "./Button";
 import { createNewProduct, InputError, ServerError } from "../queries";
 
+interface NewProductFormProps {
+  onNewProductFormClose: () => void;
+  onNewProductFormInputMissing: () => void;
+  onNewProductCreationSuccess: () => void;
+  onNewProductFormInputError: () => void;
+  onServerError: () => void;
+}
+
 export function NewProductForm({
   onNewProductFormClose,
   onNewProductFormInputMissing,
   onNewProductCreationSuccess,
   onNewProductFormInputError,
   onServerError,
-}) {
+}: NewProductFormProps) {
   const [productName, setProductName] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState<number>(0);
+  const [price, setPrice] = useState(0);
   const [code, setCode] = useState("");
   const [category, setCategory] = useState("");
-  const [stocked, setStocked] = useState(false);
+  const [stocked, setStocked] = useState("false");
   const [loading, setLoading] = useState(false);
-  const [productImage, setProductImage] = useState("");
+  const [productImage, setProductImage] = useState<File | null>(null);
 
   const handleFormSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();

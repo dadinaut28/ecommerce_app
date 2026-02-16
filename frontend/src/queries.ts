@@ -110,7 +110,7 @@ export async function createNewProduct(
 
   body.append("name", name);
   body.append("description", description);
-  body.append("price", price);
+  body.append("price", String(price));
   body.append("code", code);
   body.append("stocked", stocked);
   body.append("category", category);
@@ -146,7 +146,7 @@ export async function updateProduct(
     body.append("newProductName", newProductName);
     body.append("newProductDescription", newProductDescription);
     body.append("newProductCode", newProductCode);
-    body.append("newProductPrice", newProductPrice);
+    body.append("newProductPrice", String(newProductPrice));
     body.append("newProductCategory", newProductCategory);
     if (newProductImage) body.append("image", newProductImage);
 

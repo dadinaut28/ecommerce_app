@@ -1,6 +1,16 @@
 import { useNavigate } from "react-router-dom";
 
-export function OrderRow({ order }) {
+export interface Order {
+  id: number;
+  userfirstname: string;
+  userlastname: string;
+  total_price: number;
+  shipping_address: string;
+  status: string;
+  payment_method: string;
+}
+
+export function OrderRow({ order }: { order: Order }) {
   const navigate = useNavigate();
   return (
     <div

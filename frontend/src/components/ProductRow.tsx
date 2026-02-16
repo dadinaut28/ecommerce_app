@@ -2,12 +2,19 @@ import { useEffect, useRef, useState, type SyntheticEvent } from "react";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { deleteProduct, updateProduct } from "../queries";
+import type { Product } from "./ProductCard";
+
+interface ProductRowProps {
+  product: Product;
+  onUpdateProductFormInputMissing: () => void;
+  reloadProducts: () => void;
+}
 
 export function ProductRow({
   product,
   onUpdateProductFormInputMissing,
   reloadProducts,
-}) {
+}: ProductRowProps) {
   const [showUpdateProductForm, setShowUpdateProductForm] = useState(false);
   const [newProductName, setNewProductName] = useState(product.name);
   const [newProductDescription, setNewProductDescription] = useState(

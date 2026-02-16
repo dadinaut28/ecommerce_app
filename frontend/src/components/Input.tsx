@@ -1,18 +1,18 @@
-interface InputProps {
+interface InputProps<T extends string | number> {
   className?: string;
   placeholder?: string;
-  onChange?: (value: string) => void;
-  value?: string | number;
+  onChange?: (value: T) => void;
+  value?: T;
   type?: string;
 }
 
-export function Input({
+export function Input<T extends string | number>({
   className,
   placeholder,
   value,
   onChange,
   type,
-}: InputProps) {
+}: InputProps<T>) {
   const inputType = type ? type : "text";
   return (
     <input
@@ -21,7 +21,13 @@ export function Input({
       placeholder={placeholder}
       value={value}
       onChange={(e) => {
-        onChange && onChange(e.target.value);
+        if (onChange) {
+          const val =
+            type === "number"
+              ? (Number(e.target.value) as T)
+              : (e.target.value as T);
+          onChange(val);
+        }
       }}
     />
   );
