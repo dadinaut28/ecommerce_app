@@ -126,7 +126,7 @@ export async function createNewProduct(
 
   if (response.status > 399 && response.status < 500) {
     throw new InputError();
-  } else if (response.status > 500) {
+  } else if (response.status >= 500) {
     throw new ServerError();
   }
 }
