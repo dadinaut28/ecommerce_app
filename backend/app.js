@@ -14,7 +14,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://ecommerce-app-zeta-dun.vercel.app/",
+    origin: "https://ecommerce-app-zeta-dun.vercel.app",
   }),
 );
 app.use(express.json());
