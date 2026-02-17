@@ -11,16 +11,7 @@ const {
 
 const productsRouter = new Router();
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "images/");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
-
-const upload = multer({ storage });
+const upload = multer({ storage: multer.memoryStorage() });
 
 productsRouter.get("/", getProducts);
 productsRouter.post("/", isAdmin, upload.single("image"), postNewProduct);

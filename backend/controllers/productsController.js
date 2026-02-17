@@ -1,4 +1,13 @@
 const pool = require("../db/pool");
+const { v2 } = require("cloudinary");
+const cloudinary = v2;
+
+cloudinary.config({
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET_KEY,
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+});
+
 const {
   getAllProducts,
   getOneProduct,
@@ -30,14 +39,13 @@ async function getProducts(req, res) {
       });
     }
 
-    console.log(latest);
-
     const products = await getAllProducts(limit);
     return res.status(200).json({
       message: "Products returned sucessfully",
       products,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json({
       message: "INTERNAL_SERVER_ERROR",
     });
@@ -47,7 +55,20 @@ async function getProducts(req, res) {
 async function postNewProduct(req, res) {
   try {
     const { file } = req;
-    const imageUrl = `${process.env.API_URL}/${file.originalname}`;
+
+    const result = await new Promise((resolve, reject) => {
+      const stream = cloudinary.uploader.upload_stream(
+        { folder: "products" },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        },
+      );
+
+      stream.end(file.buffer);
+    });
+
+    const imageUrl = result.secure_url;
 
     const { name, description, price, code, stocked, category } = req.body;
 
@@ -169,7 +190,20 @@ async function patchProduct(req, res) {
       });
     }
 
-    const newImageUrl = `${process.env.API_URL}/${file.originalname}`;
+    const result = await new Promise((resolve, reject) => {
+      const stream = cloudinary.uploader.upload_stream(
+        { folder: "products" },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        },
+      );
+
+      stream.end(file.buffer);
+    });
+
+    const newImageUrl = result.secure_url;
+
     const updatedProduct = await updateProduct(id, {
       newProductName,
       newProductCategory,
