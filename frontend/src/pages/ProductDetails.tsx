@@ -26,7 +26,7 @@ export function ProductDetails() {
       <ProductSection product={product} />
       <div className="px-[10%] py-5">
         <h2 className="text-2xl text-blue-950 font-bold mb-2.5">Description</h2>
-        <p>{product?.description}</p>
+        <p className="font-medium leading-relaxed">{product?.description}</p>
       </div>
     </div>
   );
