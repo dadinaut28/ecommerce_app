@@ -16,7 +16,9 @@ export function NavBar() {
           <Link className="hidden lg:inline-block" to="/">
             Accueil
           </Link>
-          <Link to="/about">A propos</Link>
+          <Link className="hidden lg:inline-block" to="/about">
+            A propos
+          </Link>
           <Link to="/products">Nos produits</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/cart">Panier</Link>
