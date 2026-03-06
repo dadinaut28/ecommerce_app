@@ -96,7 +96,7 @@ export function ProductCard({ product }: ProductCardProps) {
         )}
       </div>
       <div className="h-1/3 bg-gray-100 pt-2">
-        <h3 className="text-center text-lg font-medium text-pink-500 mt-1 ">
+        <h3 className="text-center text-lg font-medium text-pink-500 mt-1 whitespace-nowrap text-ellipsis">
           {product.name}
         </h3>
         <p className="text-center text-blue-900 font-medium">{product.code}</p>
